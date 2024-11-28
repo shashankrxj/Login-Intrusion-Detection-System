@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #a6c1ee, #fbc2eb); /* Light blue to light pink gradient */
+            font-family: 'Arial', sans-serif;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <h1 style="text-align: center; margin-bottom: 20px;">Welcome!</h1>
+        <button onclick="location.href='/admin'" class="btn">Admin</button>
+        <button onclick="location.href='/sign_page'" class="btn">User</button>
+    </div>
+    <script src="/js/app.js"></script>
+</body>
+</html>

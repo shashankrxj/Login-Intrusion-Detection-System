@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Logs</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #333333, #808080); /* Black to grey gradient */
+            color: white; /* Ensures text is visible on the dark background */
+        }
+
+
+        .black-div {
+            background-color: black;
+            color: white;
+            width: 1000px; /* Fixed width in pixels */
+            height: 500px; /* Fixed height in pixels */
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 1.5em;
+            padding-top: 20px;
+            overflow-y: auto; /* Adds a vertical scrollbar when content overflows */
+            overflow-x: hidden; /* Prevents horizontal scrollbar */
+        }
+
+        .black-div::-webkit-scrollbar {
+            width: 12px; /* Adjust width of the scrollbar */
+        }
+
+        .black-div::-webkit-scrollbar-thumb {
+            background-color: red; /* Red color for the scrollbar thumb */
+            border-radius: 6px; /* Rounded corners for the scrollbar */
+        }
+
+        .black-div::-webkit-scrollbar-track {
+            background: #333; /* Dark background for the scrollbar track */
+        }
+
+        .black-div hr {
+            width: 100%;
+            border: 0.5px solid #828282;
+            margin: 10px 0 0px;
+        }
+
+        /* Fixed header section */
+        .black-div-header {
+            width: 100%;
+            text-align: center;
+            background-color: black;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        /* Scrollable content section */
+        .black-div-content {
+            overflow-y: auto; /* Vertical scrollbar */
+            width: 100%;
+            padding: 0 20px;
+            flex-grow: 1; /* Allows the content to expand and add scrolling */
+        }
+
+        .ad {
+            margin: 0px;
+            padding: 0px;
+            font-size: smaller;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .log-entry {
+            font-size: 0.7em;
+            margin: 5px 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .timestamp {
+            color: #FFD700; /* Golden color for the timestamp */
+        }
+
+        .username {
+            color: #00FFFF; /* Cyan color for the username */
+            font-weight: bold;
+        }
+
+        .status {
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Admin Page</h1>
+    
+    <div class="black-div">
+        <div class="black-div-header">
+            <p class="ad">Admin Logs</p>
+            <hr> <!-- Horizontal line at the top -->
+        </div>
+
+        <div class="black-div-content">
+            <ul>
+                <% if (activities && activities.length > 0) { %>
+                    <% activities.forEach(activity => { %>
+                        <li class="log-entry">
+                            <span class="timestamp">
+                                <%= new Date(activity.timestamp).toLocaleString("en-US", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true }) %> ● - 
+                            </span>
+                            <span class="username"><%= activity.username %></span> - 
+                            <span class="status"><%= activity.status %></span>
+                        </li>
+                    <% }) %>
+                <% } else { %>
+                    <li>No login activities found.</li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
