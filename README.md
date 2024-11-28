@@ -53,7 +53,7 @@ This project builds upon features from my [Signin-Signup-template Project](https
 ### Admin Logs Overview
 Here’s a preview of how the admin logs look, showing details of login attempts, including timestamps and statuses:
 
-![Admin-log](https://github.com/user-attachments/assets/b7a202d4-5c10-4fb5-9c08-d502068816ec)
+![admin-log-d](https://github.com/user-attachments/assets/be0261e7-d1a9-48f6-8f2d-c5ff23f3829c)
 
 
 ## License
